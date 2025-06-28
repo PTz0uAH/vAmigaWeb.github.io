@@ -1,10 +1,11 @@
 /**
  * official vAmigaWeb player.
  * checks whether jquery is already there, if not lazy loads it when emulator is started
+ * adapted by PTz0uAH for usage with AmiGoDOS
  */
 
  var vAmigaWeb_player={
-    vAmigaWeb_url: 'https://vamigaweb.github.io/',
+    vAmigaWeb_url: './',
     listens: false,
     loadScript: async function (url, callback){
         var script = document.createElement("script")
@@ -225,7 +226,7 @@ ${this.overlay_on_icon}
         });
 
         document.addEventListener("click", this.grab_focus);
-        document.getElementById("vAmigaWeb").onload = this.grab_focus;
+        //document.getElementById("vAmigaWeb").onload = this.grab_focus;// AmiGoDOS needs to keep the focus
 
         this.state_poller = setInterval(function(){ 
             let vAmigaWeb=document.getElementById("vAmigaWeb");            
